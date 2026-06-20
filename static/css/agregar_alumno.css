@@ -1,0 +1,120 @@
+/* RESET Y TIPOGRAFIA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6EE7B7, #3B82F6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CONTENEDOR */
+.container {
+    width: 100%;
+    max-width: 520px;
+    padding: 20px;
+}
+
+/* TARJETA */
+.card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 28px;
+    color: #111827;
+}
+
+.header p {
+    color: #6b7280;
+    margin-top: 6px;
+}
+
+/* FORMULARIO */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* BOTON PRINCIPAL */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+/* BOTON SECUNDARIO */
+.btn-volver {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #f3f4f6;
+    color: #374151;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-volver:hover {
+    background: #e5e7eb;
+    transform: translateY(-1px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .card {
+        padding: 30px 20px;
+    }
+}

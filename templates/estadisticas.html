@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard de Ocupación | Academia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estadisticas.css') }}">
+</head>
+<body>
+
+    <header class="main-header">
+        <h2>📊 Informe Estadístico y Control de Aforo</h2>
+        <p>Análisis en tiempo real de inscripciones por curso</p>
+    </header>
+
+    <main class="dashboard-grid">
+        <section class="card">
+            <div class="card-header">Visualización de Tendencias</div>
+            <div class="contenedor-grafico">
+                <img src="{{ url_for('static', filename='grafico_ocupacion.png') }}" alt="Gráfico de Ocupación">
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">Monitor de Cupos (Máx. 10)</div>
+            <div class="table-responsive">
+                <table class="tabla-cupo">
+                    <thead>
+                        <tr>
+                            <th>Curso</th>
+                            <th>Inscritos</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in plazas %}
+                        <tr>
+                            <td class="curso-nombre">{{ item.curso }}</td>
+                            <td>
+                                <div class="badge-count">{{ item.inscritos }} / 10</div>
+                            </td>
+                            <td><span class="status-pill {{ item.clase }}">{{ item.estado }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-actions">
+        <a href="/" class="btn-volver">← Volver al Panel Principal</a>
+    </footer>
+
+</body>
+</html>

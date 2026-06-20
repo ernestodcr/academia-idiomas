@@ -1,0 +1,120 @@
+/* Reset y Base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background-color: #f0f2f5;
+    color: #1a1a1a;
+    padding: 20px;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-header h2 { color: #2c3e50; font-size: 2rem; }
+.main-header p { color: #7f8c8d; }
+
+/* El Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 30px; /* Margen entre el gráfico y la tabla */
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Tarjetas (Cards) estilo App Moderna */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #e1e4e8;
+}
+
+.card-header {
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #f8f9fa;
+    padding-bottom: 10px;
+}
+
+/* Gráfico */
+.contenedor-grafico img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Tabla Estilo Real */
+.tabla-cupo {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-cupo th {
+    background-color: #f8f9fa;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 12px;
+}
+
+.tabla-cupo td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 0.95rem;
+}
+
+.curso-nombre { font-weight: 500; color: #2c3e50; }
+
+/* Badges y Pills */
+.badge-count {
+    background: #edf2f7;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-pill {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.estado-verde { background: #e6fffa; color: #28a745; }
+.estado-naranja { background: #fffaf0; color: #f0ad4e; }
+.estado-rojo { background: #fff5f5; color: #d9534f; }
+
+/* Botones y Footer */
+.footer-actions {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-volver {
+    text-decoration: none;
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: #34495e;
+    transform: translateY(-2px);
+}
+
+/* Responsivo: Si la pantalla es pequeña, uno debajo de otro */
+@media (max-width: 900px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+}

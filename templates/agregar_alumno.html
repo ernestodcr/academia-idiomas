@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Alumno</title>
+    <link rel="stylesheet" href="../static/css/agregar_alumno.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="header">
+            <h1>Agregar Alumno</h1>
+            <p>Llena los datos para registrar un nuevo alumno</p>
+        </div>
+
+        <form action="/agregar_alumno" method="POST">
+
+            <div class="form-group">
+                <label>ID</label>
+                <input type="number" name="id" required>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" name="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" name="apellido" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Teléfono</label>
+                <input type="text" name="telefono" required>
+            </div>
+
+            <div class="form-group">
+                <label>Curso</label>
+                <select name="curso_id" required>
+                    {% if cursos %}
+                        {% for curso in cursos %}
+                        <option value="{{ curso[0] }}">{{ curso[1] }} - {{ curso[2] }}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option disabled>🚫 No hay cursos con plazas disponibles</option>
+                    {% endif %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Agregar Alumno</button>
+        </form>
+
+        <a href="/alumnos" class="btn-volver">⬅ Volver a Alumnos</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

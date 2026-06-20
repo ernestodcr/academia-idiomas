@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Curso</title>
+    <link rel="stylesheet" href="../static/css/editar_curso.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Curso</h1>
+
+        <form action="/editar_curso/{{ curso[0] }}" method="POST">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" value="{{ curso[1] }}" required>
+
+            <label>Idioma:</label>
+            <input type="text" name="idioma" value="{{ curso[2] }}" required>
+
+            <label>Profesor:</label>
+            <select name="profesor_id" required>
+                <!-- Profesor actual primero, seleccionado -->
+                <option value="{{ curso[3] }}" selected>
+                    {% for profesor in profesores %}
+                        {% if profesor[0] == curso[3] %}
+                            {{ profesor[1] }} {{ profesor[2] }}
+                        {% endif %}
+                    {% endfor %}
+                </option>
+
+                <!-- Los demás profesores -->
+                {% for profesor in profesores %}
+                    {% if profesor[0] != curso[3] %}
+                        <option value="{{ profesor[0] }}">
+                            {{ profesor[1] }} {{ profesor[2] }}
+                        </option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+            <input type="submit" value="Actualizar Curso">
+        </form>
+    </div>
+</body>
+</html>

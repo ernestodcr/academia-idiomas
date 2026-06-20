@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Alumno</title>
+    <link rel="stylesheet" href="../static/css/editar_alumno.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Editar Alumno</h1>
+            <p>Actualiza la información del alumno</p>
+        </div>
+
+        <!-- FORMULARIO -->
+        <form action="/editar_alumno/{{ alumno[0] }}" method="POST">
+
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text" name="nombre" value="{{ alumno[1] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Apellido:</label>
+                <input type="text" name="apellido" value="{{ alumno[2] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" name="email" value="{{ alumno[3] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Teléfono:</label>
+                <input type="text" name="telefono" value="{{ alumno[4] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Curso:</label>
+                <select name="curso_id" required>
+                    {% for curso in cursos %}
+                        <option value="{{ curso[0] }}" {% if curso[0]==alumno[5] %}selected{% endif %}>
+                            {{ curso[1] }} ({{ curso[2] }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Actualizar Alumno</button>
+
+        </form>
+
+        <a href="/alumnos" class="btn-volver">⬅ Volver a Alumnos</a>
+    </div>
+</div>
+
+</body>
+</html>

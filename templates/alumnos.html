@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alumnos</title>
+    <link rel="stylesheet" href="../static/css/alumnos.css">
+</head>
+
+<body>
+    <header>
+        <!-- Botón modo oscuro -->
+        <button id="toggleDarkMode">🌙 Modo Oscuro</button>
+        <h1>Lista de Alumnos</h1>
+        <nav>
+            <form class="buscador-form">
+                <input type="text" placeholder="Buscar Alumno" name="alumno" id="alumno">
+                <a><button class="icon">&#128269;</button></a>
+            </form>
+        </nav>
+        <div class="agregar-container">
+            <a href="/agregar_alumno">
+                <button type="button">Agregar Alumno</button>
+            </a>
+        </div>
+    </header>
+
+    <ul id="listaAlumnos">
+        {% for alumno in alumnos %}
+        <li class="alumno-card">
+            <div class="alumno-info">
+                <span class="id">{{ alumno[0] }}</span> -
+                <span class="nombre">{{ alumno[1] }}</span>
+                <span class="apellido">{{ alumno[2] }}</span> |
+                <span class="email">{{ alumno[3] }}</span> |
+                <span class="telefono">{{ alumno[4] }}</span> |
+                <span class="curso">{{ alumno[5] }}</span>
+            </div>
+            <div class="alumno-actions">
+                <!-- Modificar -->
+                <a href="/editar_alumno/{{ alumno[0] }}" class="modificar">
+                    <img src="{{ url_for('static', filename='img/modificar.png') }}" alt="Modificar" loading="lazy">
+                </a>
+                <!-- Boton eliminar -->
+                <button type="button" onclick="abrirModal('{{ alumno[0] }}')">
+                    <img src="{{ url_for('static', filename='img/eliminar.jpg') }}" alt="Eliminar" loading="lazy">                
+                </button>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Contenedor paginación -->
+    <div id="paginacion" class="paginacion">
+        <button id="prev" disabled>Anterior</button>
+        <span id="paginaActual">1</span> / <span id="totalPaginas">1</span>
+        <button id="next">Siguiente</button>
+    </div>
+
+    <!-- Ventana de confirmación -->
+    <div id="modalEliminar" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <h2>¿Estás seguro?</h2>
+        <p>¿Deseas eliminar este alumno?</p>
+        <form id="formEliminar" method="POST">
+            <button type="submit" class="btn-eliminar">Eliminar</button>
+            <button type="button" class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+        </form>
+    </div>
+</div>
+
+    <div class="volver">
+        <a href="/">Volver página principal</a>
+    </div>
+
+        <script src="{{ url_for('static', filename='js/borrar_alumno.js') }}"></script>
+        <script src="../static/js/encontrar_alumno.js"></script>
+        <script src="../static/js/modo_oscuro.js"></script>
+        <script src="../static/js/paginacion_alumno.js"></script>
+</body>
+
+</html>

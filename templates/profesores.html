@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Profesores</title>
+    <link rel="stylesheet" href="../static/css/profesores.css">
+</head>
+<body>
+    <header>
+        <!-- Botón modo oscuro solo de diseño -->
+        <button id="toggleDarkMode">🌙 Modo Oscuro</button>
+        <h1>Lista de Profesores</h1>
+        <nav>
+            <form class="buscador-form">
+                <input type="text" placeholder="Buscar Profesor" name="profesor" id="profesor">
+                <a><button class="icon">&#128269;</button></a>
+            </form>
+        </nav>
+
+        <div class="agregar-container">
+            <a href="/agregar_profesor">
+                <button type="button">Agregar Profesor</button>
+            </a>
+        </div>
+    </header>
+
+    <ul>
+        {% for profesor in profesores %}
+        <li class="profesor-card">
+            <div class="profesor-info">
+                <span class="id">ID: {{ profesor[0] }}</span>
+                <span class="nombre">{{ profesor[1] }} {{ profesor[2] }}</span>
+                <span class="email">{{ profesor[3] }}</span>
+                <span class="telefono">{{ profesor[4] }}</span>
+            </div>
+            <div class="profesor-actions">
+                <!-- Boton Editar !-->
+                <a href="/editar_profesor/{{ profesor[0] }}" class="modificar">
+                    <img src="{{ url_for('static', filename='img/modificar.png') }}" alt="Modificar" loading="lazy">
+                </a>
+                <!-- Boton Eliminar -->
+                <button type="button" onclick="abrirModal('{{ profesor[0] }}')">
+                    <img src="{{ url_for('static', filename='img/eliminar.jpg') }}" alt="Eliminar" loading="lazy">                
+                </button>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Ventana de confirmacion -->
+      <!-- Ventana de confirmación -->
+    <div id="modalEliminar" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <h2>¿Estás seguro?</h2>
+        <p>¿Deseas eliminar este profesor?</p>
+        <form id="formEliminar" method="POST">
+            <button type="submit" class="btn-eliminar">Eliminar</button>
+            <button type="button" class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+        </form>
+    </div>
+    </div>
+    
+    <div class="volver">
+        <a href="/">Volver página principal</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/borrar_profesor.js') }}"></script>
+    <script src="../static/js/modo_oscuro.js"></script>
+    <script src="../static/js/encontrar_profesor.js"></script>
+</body>
+</html>

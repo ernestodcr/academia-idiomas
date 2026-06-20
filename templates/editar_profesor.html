@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Profesor</title>
+    <link rel="stylesheet" href="../static/css/editar_profesor.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="header">
+            <h1>Editar Profesor</h1>
+            <p>Actualiza la información del profesor</p>
+        </div>
+
+        <form action="/editar_profesor/{{ profesor[0] }}" method="POST">
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" name="nombre" value="{{ profesor[1] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" name="apellido" value="{{ profesor[2] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" value="{{ profesor[3] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Teléfono</label>
+                <input type="text" name="telefono" value="{{ profesor[4] }}" required>
+            </div>
+
+            <button type="submit" class="btn">Actualizar Profesor</button>
+
+        </form>
+
+        <a href="/profesores" class="btn-volver">← Volver a Profesores</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

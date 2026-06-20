@@ -1,0 +1,416 @@
+/* Reset y tipografía */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f6f8;
+}
+
+/* Cabecera */
+h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Navegación / buscador */
+nav {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.buscador-form {
+  display: inline-block;
+  position: relative;
+}
+
+.buscador-form input[type="text"] {
+  width: 300px;
+  padding: 10px 40px 10px 15px; /* espacio para icono */
+  font-size: 16px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.buscador-form button.icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #888;
+}
+
+/* Botón agregar */
+.agregar-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.agregar-container button {
+  padding: 10px 18px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.agregar-container button:hover {
+  background-color: #45a049;
+}
+
+/* Lista de alumnos */
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Tarjeta de alumno */
+.alumno-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px 25px;
+  margin-bottom: 15px;
+  border-left: 5px solid #2980b9;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.alumno-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Info del alumno */
+.alumno-info span {
+  margin-right: 10px;
+  line-height: 1.4;
+}
+
+span.id {
+  font-weight: bold;
+  color: #c0392b;
+}
+span.nombre {
+  font-weight: bold;
+  color: #2980b9;
+}
+span.apellido {
+  font-weight: bold;
+  color: #8e44ad;
+}
+span.email {
+  color: #27ae60;
+}
+span.telefono {
+  color: #f39c12;
+}
+span.curso {
+  font-weight: bold;
+  color: #d35400;
+}
+.alumno-actions {
+    display: flex;          /* alineación horizontal */
+    gap: 8px;               /* espacio entre iconos */
+    align-items: center;    /* centra verticalmente los iconos */
+}
+
+.alumno-actions a,
+.alumno-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.alumno-actions img {
+    width: 20px;   /* tamaño del icono */
+    height: 20px;
+}
+
+.alumno-actions img:hover {
+  transform: scale(1.3);
+}
+
+/* Volver */
+.volver {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.volver a {
+  text-decoration: none;
+  padding: 8px 16px;
+  background-color: #2980b9;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.volver a:hover {
+  background-color: #3498db;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  backdrop-filter: blur(4px); /* Difumina el fondo */
+  animation: fadeIn 0.3s ease;
+}
+
+/* =====================
+   Contenido del modal
+===================== */
+.modal-contenido {
+  background-color: #ffffff;
+  margin: 10% auto;
+  padding: 30px 25px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: slideDown 0.4s forwards;
+}
+
+/* =====================
+   Animaciones
+===================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+   Botón Cerrar
+===================== */
+.cerrar {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cerrar:hover {
+  color: #e74c3c;
+}
+
+/* =====================
+   Títulos y Texto
+===================== */
+.modal-contenido h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.modal-contenido p {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+/* =====================
+   Botones
+===================== */
+.modal-contenido button {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.btn-eliminar {
+  background-color: #e74c3c;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-eliminar:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+}
+
+.btn-cancelar {
+  background-color: #ecf0f1;
+  color: #333;
+  margin-left: 10px;
+}
+
+.btn-cancelar:hover {
+  background-color: #d0d3d4;
+  transform: translateY(-2px);
+}
+
+/* =====================
+   Responsive
+===================== */
+@media (max-width: 480px) {
+  .modal-contenido {
+    margin: 20% auto;
+    padding: 25px 15px;
+  }
+  .modal-contenido h2 {
+    font-size: 20px;
+  }
+  .modal-contenido p {
+    font-size: 14px;
+  }
+  .modal-contenido button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+/* Contenedor del botón */
+.ordenar-container {
+  display: flex;
+  justify-content: flex-end; /* A la derecha */
+  margin: 20px 0; /* Separación superior e inferior */
+}
+
+/* Botón Ordenar */
+#ordenar-btn {
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #3b82f6
+  ); /* Colores tipo top designers */
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover animado */
+#ordenar-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+}
+
+/* Efecto pulsante interno */
+#ordenar-btn::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transition: width 0.4s ease;
+  border-radius: 12px;
+}
+
+#ordenar-btn:hover::after {
+  width: 100%;
+}
+
+/* Click (presionar) */
+#ordenar-btn:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+}
+
+/* Variables de colores */
+:root {
+  --fondo: #ffffff;
+  --texto: #000000;
+  --card-fondo: #f9f9f9;
+  --boton-fondo: #007bff;
+  --boton-texto: #ffffff;
+}
+
+body.dark-mode {
+  --fondo: #1e1e1e;
+  --texto: #f1f1f1;
+  --card-fondo: #2c2c2c;
+  --boton-fondo: #4444ff;
+  --boton-texto: #ffffff;
+}
+
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.alumno-card {
+  display: flex;
+    justify-content: space-between; /* info a la izquierda, acciones a la derecha */
+    align-items: center;            /* centra verticalmente */
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+button {
+  background-color: var(--boton-fondo);
+  color: var(--boton-texto);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+#toggleDarkMode {
+  margin-left: 20px;
+}

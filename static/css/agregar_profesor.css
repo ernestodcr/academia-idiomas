@@ -1,0 +1,118 @@
+/* =====================
+   Tipografía y fondo
+===================== */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    color: #1a73e8; /* azul premium */
+}
+
+/* =====================
+   Contenedor del formulario
+===================== */
+form {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* =====================
+   Labels
+===================== */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+}
+
+/* =====================
+   Inputs
+===================== */
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 8px rgba(26,115,232,0.2);
+}
+
+/* =====================
+   Botón submit
+===================== */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a73e8;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(26,115,232,0.3);
+}
+
+input[type="submit"]:hover {
+    background-color: #155ab6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26,115,232,0.4);
+}
+
+/* =====================
+   Responsive
+===================== */
+@media (max-width: 480px) {
+    form {
+        margin: 30px 15px;
+        padding: 25px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"] {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+a {
+    text-decoration: none;
+        color:white;
+}
+
+button{
+    background: red;
+    padding: 10px;
+    margin-left: 30px;
+    border-radius: 10px;
+}

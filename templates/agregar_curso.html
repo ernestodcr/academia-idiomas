@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Curso</title>
+    <link rel="stylesheet" href="../static/css/agregar_curso.css">
+</head>
+<body>
+    <h1>Agregar Curso</h1>
+
+    <form action="{{ url_for('agregar_curso') }}" method="POST" style="max-width:500px; margin:auto;">
+        <label for="id">ID:</label><br>
+        <input type="number" name="id" required><br><br>
+
+        <label for="nombre">Nombre del Curso:</label><br>
+        <input type="text" name="nombre" required><br><br>
+
+        <label for="idioma">Idioma:</label><br>
+        <input type="text" name="idioma" required><br><br>
+
+        <label for="profesor_id">Profesor:</label><br>
+        <select name="profesor_id" required>
+            <option value="">-- Selecciona un profesor --</option>
+            {% for profesor in profesores %}
+            <option value="{{ profesor[0] }}">{{ profesor[1] }} {{ profesor[2] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Agregar Curso">
+    </form>
+
+    <div class="volver">
+        <button><a href="/cursos">Volver Cursos</a></button>
+    </div>
+</body>
+</html>

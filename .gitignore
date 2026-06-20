@@ -1,0 +1,6 @@
+*.pyc
+instance/
+.env
+.venv/
+academiaIdiomas.db
+.idea/

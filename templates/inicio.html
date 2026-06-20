@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Academia de Idiomas</title>
+    <link rel="stylesheet" href="../static/css/inicio.css">
+</head>
+<body>
+    <header>
+        <h1 class="titulo-animado">Academia de Idiomas</h1>
+    </header>
+
+    <div class="container">
+        <p class="texto-animado">Bienvenido a la Academia. Selecciona una sección:</p>
+
+        <a href="/alumnos" class="btn btn-animado">Alumnos</a>
+        <a href="/cursos" class="btn btn-animado">Cursos</a>
+        <a href="/profesores" class="btn btn-animado">Profesores</a>
+    </div>
+
+    <hr>
+    <h2>Gestión de Datos</h2>
+    <a href="{{ url_for('descargar_reporte') }}" class="btn btn-success">
+        📥 Descargar Reporte Completo (Excel)
+    </a>
+
+    <a href="/estadisticas" class="btn btn-success">Ver Informe de Ocupación 📊</a>
+
+    <footer>
+        &copy; Proyecto realizado por <strong>Ernesto de la Cruz del Río.</strong>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Profesor</title>
+    <link rel="stylesheet" href="../static/css/agregar_profesor.css">
+</head>
+<body>
+    <h1>Agregar Profesor</h1>
+
+    <form action="{{ url_for('agregar_profesor') }}" method="POST">
+        <label>ID:</label><br>
+        <input type="number" name="id" required><br><br>
+
+        <label>Nombre:</label><br>
+        <input type="text" name="nombre" required><br><br>
+
+        <label>Apellido:</label><br>
+        <input type="text" name="apellido" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Teléfono:</label><br>
+        <input type="text" name="telefono" required><br><br>
+
+        <input type="submit" value="Agregar Profesor">
+    </form>
+
+    <div class="volver">
+        <button><a href="/profesores">Volver Profesores</a></button>
+    </div>
+</body>
+</html>

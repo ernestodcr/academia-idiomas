@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos</title>
+    <link rel="stylesheet" href="../static/css/cursos.css">
+</head>
+
+<body>
+    <header>
+        <button id="toggleDarkMode">🌙 Modo Oscuro</button>
+        <h1>Lista de Cursos</h1>
+        <nav>
+            <form class="buscador-form">
+                <input type="text" placeholder="Buscar Curso" name="curso" id="curso">
+                <a><button class="icon">&#128269;</button></a>
+            </form>
+        </nav>
+        <div class="agregar-container">
+            <a href="/agregar_curso">
+                <button type="button">Agregar Curso</button>
+            </a>
+        </div>
+    </header>
+
+    <ul>
+        {% for curso in cursos %}
+        <li class="curso-card">
+            <div class="curso-info">
+                <span class="id">ID: {{ curso[0] }}</span>
+                <span class="nombre">{{ curso[1] }}</span>
+                <span class="idioma">{{ curso[2] }}</span>
+                <span class="profesor">{{ curso[3] }} {{ curso[4] }}</span>
+            </div>
+            <div class="curso-actions">
+                <!-- Boton Editar !-->
+                <a href="/editar_curso/{{ curso[0] }}" class="modificar">
+                    <img src="../static/img/modificar.png" alt="Modificar" loading="lazy">
+                </a>
+                <!-- Boton Eliminar -->
+                <button type="button" onclick="abrirModal('{{ curso[0] }}')">
+                    <img src="../static/img/eliminar.jpg" alt="Eliminar" loading="lazy">
+                </button>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Ventana de confirmación -->
+    <div id="modalEliminar" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <h2>¿Estás seguro?</h2>
+        <p>¿Deseas eliminar este curso?</p>
+        <form id="formEliminar" method="POST">
+            <button type="submit" class="btn-eliminar">Eliminar</button>
+            <button type="button" class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+        </form>
+    </div>
+</div>
+
+    <div class="volver">
+        <a href="/">Volver página principal</a>
+    </div>
+
+    <script src="../static/js/borrar_curso.js"></script>
+    <script src="../static/js/modo_oscuro.js"></script>
+    <script src="../static/js/encontrar_curso.js"></script>
+</body>
+
+</html>
